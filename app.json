@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Quiet Cafés Heatmap",
+    "name": "Quiet Caf\u00e9s Heatmap",
     "slug": "quiet-cafes-heatmap",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,14 +15,15 @@
     },
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "app.rork.quiet-cafes-heatmap",
+      "bundleIdentifier": "app.tminus.quiet-cafes-heatmap",
       "infoPlist": {
         "NSLocationAlwaysAndWhenInUseUsageDescription": "Allow $(PRODUCT_NAME) to use your location.",
         "NSLocationAlwaysUsageDescription": "Allow $(PRODUCT_NAME) to use your location.",
         "NSLocationWhenInUseUsageDescription": "Allow $(PRODUCT_NAME) to use your location.",
         "UIBackgroundModes": [
           "location"
-        ]
+        ],
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
