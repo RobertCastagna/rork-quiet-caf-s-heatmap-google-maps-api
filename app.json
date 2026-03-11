@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Quiet Caf\u00e9s Heatmap",
+    "name": "Quiet Cafés Heatmap",
     "slug": "quiet-cafes-heatmap",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -38,7 +38,12 @@
         "FOREGROUND_SERVICE",
         "FOREGROUND_SERVICE_LOCATION",
         "ACCESS_BACKGROUND_LOCATION",
-        "android.permission.VIBRATE"
+        "android.permission.VIBRATE",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_BACKGROUND_LOCATION",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_LOCATION"
       ]
     },
     "web": {
@@ -65,6 +70,15 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "owner": "robert_castagna",
+    "extra": {
+      "router": {
+        "origin": "https://rork.com/"
+      },
+      "eas": {
+        "projectId": "e333a047-312f-4ea2-ad03-b26519b14b89"
+      }
     }
   }
 }
