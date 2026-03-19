@@ -1,37 +1,39 @@
 {
   "project_structure": [
-    "package.json",
-    "metro.config.js",
-    "README.md",
-    "app.json",
-    "bun.lock",
-    "babel.config.js",
     ".gitignore",
-    "eslint.config.js",
-    "tsconfig.json",
+    "package-lock.json",
+    "README.md",
+    "babel.config.js",
+    "app.json",
     "evaluation_context.json",
-    "contexts/AppContext.tsx",
+    "metro.config.js",
+    "tsconfig.json",
+    "eslint.config.js",
+    "package.json",
+    "eas.json",
+    "components/CafePin.tsx",
+    "components/HeatmapCircle.tsx",
+    "components/CafeCard.tsx",
+    "components/FilterBar.tsx",
+    "assets/images/adaptive-icon.png",
+    "assets/images/favicon.png",
+    "assets/images/icon.png",
+    "assets/images/splash-icon.png",
+    "eas-hooks/eas-build-pre-install.sh",
+    "types/index.ts",
     "constants/colors.ts",
     "mocks/cafes.ts",
-    "types/index.ts",
+    "contexts/AppContext.tsx",
     "app/_layout.tsx",
     "app/+not-found.tsx",
     "app/+native-intent.tsx",
-    "app/(tabs)/_layout.tsx",
     "app/(tabs)/saved.tsx",
+    "app/(tabs)/_layout.tsx",
     "app/(tabs)/checkin.tsx",
     "app/(tabs)/(map)/index.tsx",
     "app/(tabs)/(map)/_layout.tsx",
     "app/(tabs)/(map)/cafe/[id].tsx",
-    "components/HeatmapCircle.tsx",
-    "components/CafePin.tsx",
-    "components/FilterBar.tsx",
-    "components/CafeCard.tsx",
-    "utils/scoring.ts",
-    "assets/images/splash-icon.png",
-    "assets/images/icon.png",
-    "assets/images/adaptive-icon.png",
-    "assets/images/favicon.png"
+    "utils/scoring.ts"
   ],
   "config_files": {
     "app.json": {
@@ -51,14 +53,15 @@
         },
         "ios": {
           "supportsTablet": false,
-          "bundleIdentifier": "app.rork.quiet-cafes-heatmap",
+          "bundleIdentifier": "app.tminus.quiet-cafes-heatmap",
           "infoPlist": {
             "NSLocationAlwaysAndWhenInUseUsageDescription": "Allow $(PRODUCT_NAME) to use your location.",
             "NSLocationAlwaysUsageDescription": "Allow $(PRODUCT_NAME) to use your location.",
             "NSLocationWhenInUseUsageDescription": "Allow $(PRODUCT_NAME) to use your location.",
             "UIBackgroundModes": [
               "location"
-            ]
+            ],
+            "ITSAppUsesNonExemptEncryption": false
           }
         },
         "android": {
@@ -73,7 +76,12 @@
             "FOREGROUND_SERVICE",
             "FOREGROUND_SERVICE_LOCATION",
             "ACCESS_BACKGROUND_LOCATION",
-            "android.permission.VIBRATE"
+            "android.permission.VIBRATE",
+            "android.permission.ACCESS_COARSE_LOCATION",
+            "android.permission.ACCESS_FINE_LOCATION",
+            "android.permission.ACCESS_BACKGROUND_LOCATION",
+            "android.permission.FOREGROUND_SERVICE",
+            "android.permission.FOREGROUND_SERVICE_LOCATION"
           ]
         },
         "web": {
@@ -100,6 +108,15 @@
         ],
         "experiments": {
           "typedRoutes": true
+        },
+        "owner": "robert_castagna",
+        "extra": {
+          "router": {
+            "origin": "https://rork.com/"
+          },
+          "eas": {
+            "projectId": "e333a047-312f-4ea2-ad03-b26519b14b89"
+          }
         }
       }
     },
@@ -111,13 +128,15 @@
         "start": "bunx rork start -p opfe821l5eq5fr6irpdmx --tunnel",
         "start-web": "bunx rork start -p opfe821l5eq5fr6irpdmx --web --tunnel",
         "start-web-dev": "DEBUG=expo* bunx rork start -p opfe821l5eq5fr6irpdmx --web --tunnel",
-        "lint": "expo lint"
+        "lint": "expo lint",
+        "android": "expo run:android",
+        "ios": "expo run:ios"
       },
       "dependencies": {
         "@expo/vector-icons": "^15.0.3",
         "@nkzw/create-context-hook": "^1.1.0",
         "@react-native-async-storage/async-storage": "2.2.0",
-        "@rork-ai/toolkit-sdk": "^0.2.51",
+        "@rork-ai/toolkit-sdk": "0.2.54",
         "@stardazed/streams-text-encoding": "^1.0.2",
         "@tanstack/react-query": "^5.83.0",
         "@ungap/structured-clone": "^1.3.0",
@@ -137,7 +156,7 @@
         "expo-symbols": "~1.0.8",
         "expo-system-ui": "~6.0.9",
         "expo-web-browser": "~15.0.10",
-        "lucide-react-native": "^0.475.0",
+        "lucide-react-native": "0.577.0",
         "react": "19.1.0",
         "react-dom": "19.1.0",
         "react-native": "0.81.5",
@@ -159,13 +178,25 @@
         "typescript": "~5.9.2"
       },
       "private": true
+    },
+    "eas.json": {
+      "cli": {
+        "version": ">= 11.0.0",
+        "appVersionSource": "remote"
+      },
+      "build": {
+        "production": {
+          "autoIncrement": true,
+          "credentialsSource": "local"
+        }
+      }
     }
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",
     "@nkzw/create-context-hook": "^1.1.0",
     "@react-native-async-storage/async-storage": "2.2.0",
-    "@rork-ai/toolkit-sdk": "^0.2.51",
+    "@rork-ai/toolkit-sdk": "0.2.54",
     "@stardazed/streams-text-encoding": "^1.0.2",
     "@tanstack/react-query": "^5.83.0",
     "@ungap/structured-clone": "^1.3.0",
@@ -185,7 +216,7 @@
     "expo-symbols": "~1.0.8",
     "expo-system-ui": "~6.0.9",
     "expo-web-browser": "~15.0.10",
-    "lucide-react-native": "^0.475.0",
+    "lucide-react-native": "0.577.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-native": "0.81.5",
@@ -207,7 +238,8 @@
         "NSLocationWhenInUseUsageDescription": "Allow $(PRODUCT_NAME) to use your location.",
         "UIBackgroundModes": [
           "location"
-        ]
+        ],
+        "ITSAppUsesNonExemptEncryption": false
       }
     }
   ],
